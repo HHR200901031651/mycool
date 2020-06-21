@@ -1,12 +1,13 @@
-import scapy, re, socket, os, sys, ftplib, re, pygame, cookielib, ftplib, mechanize, random
-from BeautifulSoup import BeautifulSoup
-from anonBrowser import *
-from scapy.all import *
-import dup
-from scapy.layers.inet import IP
+import ftplib
 import json
-import urllib
 import optparse
+import urllib
+
+from BeautifulSoup import BeautifulSoup
+from scapy.all import *
+from scapy.layers.inet import IP
+
+from anonBrowser import *
 
 cookieTable = {}
 
@@ -93,9 +94,7 @@ def ftpSniff(pkt):
         print '[*] Detected FTP Login to ' + str(dest)
         print '[+] User account: ' + str(user[0])
     elif pswd:
-        print '[+] Password: ' + str(pswd[0]) \
- \
- \
+        print '[+] Password: ' + str(pswd[0])
 def start_ftpsniff(mon):
     conf.iface = mon
     sniff(filter='tcp port 21', prn=ftpSniff)
